@@ -1,3 +1,15 @@
+<% if @room.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @room.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
@@ -21,6 +33,9 @@
           <%= f.label :guests, "Número de Huéspedes" %>
           <%= f.number_field :guests, class: 'form-control input-lg' %>
         </div>
+        <div class="form-group">
+          <%= f.text_field :price_per_night, class:'form-control input-lg', placeholder:"Precio por noche" %>
+         </div>
 
         <div class="form-group">
           <%= f.text_field :image_url, class: 'form-control input-lg', placeholder: "URL de Imagen" %>
